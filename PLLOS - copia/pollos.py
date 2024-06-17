@@ -77,7 +77,21 @@ def neg_yunco(datos): #Obtiene cantidad de casos negativos de la especie “Yunc
     return yunco
 
 def neg_lile_jun2023(datos): #Obtiene la cantidad de casos negativos para la especie “Lile” para junio del 2023.
-    pass
+    i = 5
+    j = 2
+    k = 9
+    caso_neg = 0
+    while i <= 51850:
+        if datos[i] == "Lile":
+            x = datos[j]
+            str_x = str(x)
+            if str_x[3] == "5":
+                if str_x[7] == "3":
+                    if datos[k] == "Negativo":
+                        caso_neg += 1
+        i += 10
+        j += 10
+    return caso_neg
 
 def incidencias(datos): #Obtiene y grafica la cantidad de casos negativos de las especies: Gaviota, Piquero, Salteador, Pelicano y Guanay.
     i = 5
@@ -150,7 +164,7 @@ def genera_salida(casos_sec, casos_neg_abr, casos_neg_yunco, casos_neg_lile_jul)
     f.write(str(casos_neg_yunco))
     f.write("\n------------------------------------------------------\n")
     f.write("Incidencias 06/2023 del 'Lile': ")
-    f.write("xxxx")
+    f.write(str(casos_neg_lile_jul))
 
 if __name__ == "__main__":
     datos = lectura_datos()
